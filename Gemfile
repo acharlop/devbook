@@ -1,8 +1,11 @@
 source 'https://rubygems.org'
 
+# required for heroku
 gem "rails_12factor", group: :production
-
+# using PostgreSQL as database
 gem "pg"
+# Puma server in production
+gem "puma"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
