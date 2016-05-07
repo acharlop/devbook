@@ -7,7 +7,7 @@ gem "pg"
 # Puma server in production
 gem "puma"
 # bootstrap 
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
@@ -50,5 +50,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+gem 'font-awesome-sass', '~> 4.6.2'
 
 ruby "2.2.1"

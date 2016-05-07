@@ -2,15 +2,17 @@
 	<div class="container-fluid nav-wrapper">
 
 		<div class="nav-item">
-			<a class="navbar-brand" href="#">DocPage</a>
+			<a class="navbar-brand" href="#">DocPages</a>
 		</div>
-		
-		<form class="nav-item navbar-form form-inline nav-search" role="search">
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Search">
-			</div>
-		</form>
-
+		<div class="nav-item">
+			<form class="form-inline nav-search" role="search">
+				<div>
+					<label for="search">
+					<%= icon('search') %></label>
+					<input type="text" id="input-search" placeholder="Search Ruby" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false">
+				</div>
+			</form>
+		</div>
 		<ul class="nav nav-item navbar-right user-prefences">
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="nav-user-avatar" src="http://placehold.it/30x30/"></a>
@@ -49,6 +51,7 @@
 						<h3 class="panel-title">Description</h3>
 					</div>
 					<div class="panel-body">
+						<i class="fa fa-search" aria-hidden="true"></i>
 						Panel content
 					</div>
 				</div>			

@@ -55,3 +55,21 @@
 		border-radius: 50%;
 	}
 }
+
+.nav-search{
+		width: 100%;
+		font-size: 18px;
+		padding: 15px 0;
+		line-height: 20px;
+		overflow: hidden;
+	#input-search {
+		display: inline-block;
+		width: 90%;
+		border: none;
+		background: transparent;
+		outline: none;
+		&:focus {
+			outline: none;
+		}
+	}
+}
