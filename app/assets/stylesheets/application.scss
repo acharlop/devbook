@@ -10,10 +10,21 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- * require_tree .
  * require_self
  */
 
 /* "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables" */
+/*= require_tree . */
+
+
+$brand-primary: #428bca;
+
+@gray-darker:  lighten(#000, 55.5%)
+@gray-dark:    lighten(#000, 20%)
+@gray:         lighten(#000, 33.5%)
+@gray-light:   lighten(#000, 46.7%)
+@gray-lighter: lighten(#000, 93.5%)
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bootstrap/variables";
