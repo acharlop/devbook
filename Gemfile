@@ -52,5 +52,6 @@ group :development do
 end
 
 gem 'font-awesome-sass', '~> 4.6.2'
+gem "jstree-rails-4"
 
 ruby "2.2.1"

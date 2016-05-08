@@ -13,8 +13,10 @@
  * require_self
  */
 
-/* "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables" */
-/*= require_tree . */
+/* "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+ *= require jstree-default
+ *= require_tree . 
+*/
 
 
 $brand-primary: #428bca;
