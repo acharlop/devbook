@@ -20,6 +20,10 @@
   }
 }
 
+.open > a, .nav .open > a:hover, .nav .open > a:focus, .nav > li > a:hover, .nav > li > a:focus {
+	background: transparent !important;
+}
+
 .nav-wrapper {
 	display: flex;
   flex-wrap: wrap;
@@ -40,10 +44,17 @@
     text-align: left;
 
 	}
-	.user-prefences {
+	.user-pref {
 		text-align: right !important;
+		margin: 0;
 		a {
-		padding-right: 0px;
+			padding-right: 0;
+		}
+		ul {
+			position: absolute;
+			right: 8px;
+			top: 56px;
+			min-width: 200px;
 		}
 	}
 	.nav-user-avatar {
