@@ -36,10 +36,12 @@
 				<span class="glyphicon glyphicon-icon" aria-hidden="true"></span>
 				<span class="language-name"></span>
 			</div>
-			<div id="jstree_demo_div">
+			<div class="js-class-name">Array</div>
+			<div id="jstree_methods">
 				<ul>
-					<li><a href="#">Test</a></li>
-					<li><a href="#">Test</a></li>
+					<% Array.instance_methods(false).sort.each do |method| %>
+					<li><a href="#"><%= method %></a></li>
+					<% end %>
 				</ul>
 			</div>
 		</div>
@@ -58,17 +60,3 @@
 		</div>
 	</div>
 </div>
-
-
-<!-- footer -->
-<footer>
-	<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-		<div class="container">
-			<ul class="nav navbar-nav">
-				<li class="active">
-					<a href="#">About</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-</footer>
