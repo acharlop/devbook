@@ -1,10 +1,10 @@
 						<div class="component-head">
-							<h4><%= type %></h4>
+							<h4><%= type.capitalize %></h4>
 						</div>
-						<div class="component-actions">
+						<div class="component-actions" id="<%= type %>-component-actions">
 							<h4>
-								<%= icon("arrows") %>
+								<%= icon("arrows", class: "move") %>
 								&nbsp;
-								<%= icon("minus") %>
+								<%= icon("minus", class: "minimize") %>
 							</h4>
 						</div>

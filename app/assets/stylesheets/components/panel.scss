@@ -1,35 +1,36 @@
 .panel-body {
-		@extend .clearfix;
+		// @extend .clearfix;
+		clear: both;
+		padding: 15px;
+		padding-bottom: 0;
+
+	// position: relative;
+	// top: -31px;
+}
+.component-wrapper {
 	position: relative;
-	top: -31px;
+}
+.component-head {
+	position: absolute;
+	left: 15px;
+	top: -15px;
+	display: inline-block;
+	margin: 0;
+	padding: 5px;
+	border-radius: 5px;
+	background: white;
+	border: 1px solid $brand-primary;
+	background: $gray-lighter;
+	h4 {
+		color: $brand-primary;
+		margin: 0;
+	}
+}
+.component-actions {
+	@extend .component-head;
+	right: 15px;
+	left: initial;
 }
 .panel {
 	margin: 15px 0;
-	.component-head {
-		display: inline-block;
-		margin: 0;
-		padding: 5px;
-		border-radius: 5px;
-		background: white;
-		border: 1px solid $brand-primary;
-		float: left;
-		background: $gray-lighter;
-		h4 {
-			color: $brand-primary;
-			margin: 0;
-		}
-	}
-	.component-actions {
-		@extend .component-head;
-		float: right;
-	}
-	.component-body {
-		position: relative;
-		top: 15px;
-		@extend .clearfix;
-		p {
-			// padding-bottom: 0;
-			// margin: 0;
-		}
-	}
 }
