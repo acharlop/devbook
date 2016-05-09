@@ -1,0 +1,61 @@
+
+.nav-wrapper {
+	display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+	.navbar-brand {
+		padding: 15px 0;
+	}
+
+	.nav-item {
+		flex: 1 1 auto;
+		height: 50px;
+		margin: 0px;
+	}
+	.nav-search {
+		display: inline-block;
+    float: none;
+    text-align: left;
+
+	}
+	.user-pref {
+		text-align: right !important;
+		margin: 0;
+		a {
+			padding-right: 0;
+		}
+		ul {
+			position: absolute;
+			right: 8px;
+			top: 56px;
+			min-width: 200px;
+		}
+	}
+	.nav-user-avatar {
+		display: inline-block;
+		padding: 10;
+		margin: 0;
+		height: 30px;
+		width: 30px;
+		border-radius: 50%;
+	}
+}
+
+.nav-search{
+		width: 100%;
+		font-size: 18px;
+		padding: 15px 0;
+		line-height: 20px;
+		overflow: hidden;
+	#input-search {
+		display: inline-block;
+		width: 90%;
+		border: none;
+		background: transparent;
+		outline: none;
+		&:focus {
+			outline: none;
+		}
+	}
+}
