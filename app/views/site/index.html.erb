@@ -47,35 +47,9 @@
 				
 		<!-- main content -->
 		<div class="row">
-			<div class="col-xs-12 col-lg-6">
-				<div class="panel panel-primary">
-						<%= render 'component_header', type: "Description" %>
-						<i class="fa icon-move" aria-hidden="true"></i>
-						Panel content
-					</div>
-				</div>			
-			</div>
-
-			<div class="col-xs-12 col-lg-6">
-				<div class="panel panel-primary">
-					<%= render 'component_header', type: "Syntax" %>
-
-					<div class="panel-body">
-						Panel content
-					</div>
-				</div>			
-			</div>
-
-			<div class="col-xs-12 col-lg-6">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h3 class="panel-title text-center">Examples</h3>
-					</div>
-					<div class="panel-body">
-						Panel content
-					</div>
-				</div>			
-			</div>		
+			<%= render "panel", type: "description" %>
+			<%= render "panel", type: "syntax" %>
+			<%= render "panel", type: "examples" %>
 		</div>
 <!--  -->
 

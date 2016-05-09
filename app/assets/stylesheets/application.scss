@@ -21,15 +21,19 @@
  * require_tree . 
 */
 
+/* 3rd party files */
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap/variables";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "jstree-default";
 
+/* custom, overrides, and partials files */
+@import "universals";
 @import "my-bootstrap/*";
 @import "components/*";
 
+/* controllers files */
 @import "site";
-@import "jstree-default";
 
