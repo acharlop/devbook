@@ -84,3 +84,25 @@
 		}
 	}
 }
+
+.panel {
+	margin-top: 15px;
+	.panel-head {
+		position: relative;
+		display: inline-block;
+		top: -32px;
+		margin: 0;
+		padding: 5px;
+		border-radius: 5px;
+		background: white;
+		border: 1px solid #428bca;
+		float: left;
+		h4 {
+			margin: 0;
+		}
+	}
+	.panel-actions {
+		@extend .panel-head;
+		float: right;
+	}
+}
