@@ -11,9 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160510212122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "klasses", force: :cascade do |t|
+    t.string   "name"
+    t.text     "definition"
+    t.boolean  "module"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "language_id"
+  end
+
+  add_index "klasses", ["language_id"], name: "index_klasses_on_language_id", using: :btree
+
+  create_table "languages", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "url"
+    t.integer  "klass_id"
+  end
+
+  add_index "languages", ["klass_id"], name: "index_languages_on_klass_id", using: :btree
+
+  create_table "meths", force: :cascade do |t|
+    t.string   "name"
+    t.string   "signature"
+    t.text     "description"
+    t.text     "example"
+    t.text     "source"
+    t.boolean  "class_method"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_foreign_key "klasses", "languages"
+  add_foreign_key "languages", "klasses"
 end
