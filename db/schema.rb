@@ -11,10 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511005612) do
+ActiveRecord::Schema.define(version: 20160511043154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.text     "text"
+    t.integer  "components_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "components_type"
+  end
+
+  add_index "articles", ["components_id"], name: "index_articles_on_components_id", using: :btree
+
+  create_table "documents", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "language_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "documents", ["language_id"], name: "index_documents_on_language_id", using: :btree
 
   create_table "includes", force: :cascade do |t|
     t.integer  "includer_id"
@@ -27,10 +46,11 @@ ActiveRecord::Schema.define(version: 20160511005612) do
     t.string   "name"
     t.text     "definition"
     t.boolean  "module"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "language_id"
     t.integer  "parent_id"
+    t.integer  "namespace_id"
   end
 
   add_index "klasses", ["language_id"], name: "index_klasses_on_language_id", using: :btree
@@ -55,8 +75,13 @@ ActiveRecord::Schema.define(version: 20160511005612) do
     t.boolean  "class_method"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "klass_id"
   end
 
+  add_index "meths", ["klass_id"], name: "index_meths_on_klass_id", using: :btree
+
+  add_foreign_key "documents", "languages"
   add_foreign_key "klasses", "languages"
   add_foreign_key "languages", "klasses"
+  add_foreign_key "meths", "klasses"
 end

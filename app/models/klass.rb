@@ -14,22 +14,14 @@ class Klass < ActiveRecord::Base
 	has_many :includee_module, foreign_key: :includer_id, class_name: "Include"
   has_many :includees, through: :includee_module, source: :includee
 
+# one class can have many classes / modules under it's namespace
+	belongs_to :namespace, class_name: "Klass"
+	has_many :namespaced_under, class_name: "Klass", foreign_key: :namespace_id
 
- # # follower_follows "names" the Follow join table for accessing through the follower association
- #  has_many :follower_follows, foreign_key: :followee_id, class_name: "Follow" 
- #  # source: :follower matches with the belong_to :follower identification in the Follow model 
- #  has_many :followers, through: :follower_follows, source: :follower
+# Klass methods
+	has_many :meths
 
- #  # followee_follows "names" the Follow join table for accessing through the followee association
- #  has_many :followee_follows, foreign_key: :follower_id, class_name: "Follow"    
- #  # source: :followee matches with the belong_to :followee identification in the Follow model   
- #  has_many :followees, through: :followee_follows, source: :followee
-
-
-
-
-	#
-	# has_many :children, class_name: "Klass", foreign_key: "parent_id"
- #  belongs_to :parent, class_name: "Klass"
+# articles
+	has_many :articles, as: :components
 
 end

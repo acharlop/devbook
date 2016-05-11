@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :meths
+  resources :meths
   resources :klasses
   root "site#index"
   # The priority is based upon order of creation: first created -> highest priority.
