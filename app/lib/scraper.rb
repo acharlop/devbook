@@ -100,7 +100,7 @@ class Scraper
 			return_descs = []
 			articles = class_page.css("div#description").children.reject {|c| c.class == Nokogiri::XML::Text}
 			articles.each do |d|
-				return_descs.push( process_elements(d) )
+				return_descs << process_elements(d)
 			end
 			# Pry::ColorPrinter.pp(return_descs)
 			return_descs
@@ -131,7 +131,7 @@ class Scraper
 					end
 					# aliases in headings for now
 					aliases = meth.css("div.aliases").inner_text.gsub(/\s+/," ").strip
-					meh[:signatures].push aliases unless aliases.empty?
+					meh[:signatures] << aliases unless aliases.empty?
 
 					# get source
 					 source = meth.css("div.method-source-code").inner_html.gsub(/ +/," ").strip
@@ -146,13 +146,13 @@ class Scraper
 						element = process_elements deet
 						next unless element
 						if element =~ /<\/pre>\z/ 
-							meh[:examples].push element
+							meh[:examples] << element
 						else
-							meh[:articles].push element
+							meh[:articles] << element
 						end
 					end
 
-					return_meths.push(meh)
+					return_meths << meh
 				end
 			end
 			return_meths

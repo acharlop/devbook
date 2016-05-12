@@ -11,13 +11,15 @@ function update_components (method) {
 }
 
 $(document).ready(function() {
-	$("a.js-method-select").click(function(event) {
+	$("div#jstree_methods").on('click', '.js-class-select', function(event) {
+		// console.log("class")
+	})
+	$("div#jstree_methods").on('click', '.js-method-select', function(event) {
 		event.preventDefault();
 		var button = $(event.currentTarget)
 		var id = button.data("method-id")
 		$.get('/api/meths/'+id, function(data) {
-			console.log("here")
 			update_components(data)
-		});
-	})
+		})
+	});
 })

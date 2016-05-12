@@ -1,8 +1,9 @@
 class SiteController < ApplicationController
 	def index
-		@lang = Language.first
-		@class = @lang.klasses.first
+		@lang = Language.all.sample
+		@classes = @lang.klasses
+		@class = @classes.sample
 		@methods = @class.meths
-		@meth = @methods.find_by(name: "#<=>")
+		@meth = @methods.sample
 	end
 end

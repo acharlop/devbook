@@ -46,16 +46,32 @@
 					<%= @lang[:name].capitalize %>
 				</h2>
 			</div>
-			<div class="js-class-name">
-				<%= @class[:name].capitalize %>
-			</div>
+
+
+
 			<div id="jstree_methods">
-				<ul>
-					<% @methods.reverse.each do |method| %>
-					<li><a href="#" class="js-method-select" data-method-id="<%= method[:id] %>"><%= method[:name] %></a></li>
+				<ul class="classes-list">
+					<% @classes.each do |klass| %>
+						<li>
+							<a href="#" class="js-class-select" data-class-id="<%= klass[:id] %>">
+								<%= klass[:name] %>
+							</a>
+							<ul class="methods-list">
+								<% klass.meths.reverse.each do |method| %>
+									<li>
+										<a href="#" class="js-method-select" data-method-id="<%= method[:id] %>">
+											<%= method[:name] %>
+										</a>
+									</li>
+								<% end %>
+							</ul>
+						</li>
 					<% end %>
 				</ul>
 			</div>
+
+
+
 		</div>
 		<div class="col-xs-9 col-md-10">
 				
