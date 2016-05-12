@@ -49,6 +49,7 @@ class Scraper
 				header = @page.css("header h1").inner_text.split(" ")
 				@language[:name] = header[0]
 				@language[:version] = header[1]
+				@language[:url] = @url
 			end
 
 			def class_details
@@ -60,7 +61,7 @@ class Scraper
 
 					page_string = get_fixed_page(url)
 					class_page = Nokogiri::HTML(page_string)
-					# k[:descriptions] = scrape_class_description class_page
+					k[:descriptions] = scrape_class_description class_page
 					k[:methods] = scrape_class_methods class_page
 
 					puts (i + 1).to_s << "/" << @language[:classes].length.to_s << " completed"
@@ -149,5 +150,34 @@ class Scraper
 		end
 end
 
+
+class Loader
+	class RubyLoader
+		def initialize lang
+			@lang = lang
+			load
+		end
+		def load
+			load_lang
+		end
+		def load_lang
+			Language.create(
+				name: @lang[:name], 
+				version: @lang[:version],
+				url: @lang[:url])
+		end
+		def load_classes
+			@lang[:classes].each do |klass|
+
+			end
+		end
+		def load_methods
+
+		end
+	end
+end
+
+
+
 rby = Scraper::RubyScraper.new("http://ruby-doc.org/core-2.3.1/")
-Pry::ColorPrinter.pp(rby.language[:classes][0])
+Pry::ColorPrinter.pp(rby.language[:classes][0].keys)
