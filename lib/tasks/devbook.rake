@@ -1,11 +1,16 @@
 namespace :devbook do
   desc "Run scrape scripts and build database"
   task scrape: :environment do
+  	rby = Scraper::RubyScraper.new
+  	Loader.new rby.language
   end
 
-  desc "Unloads and then scrapes"
-  task rebuild: :environment do
-  	Rake::Task["db:schema:load"].execute
-  end
+  desc "Rebuild database"
+  task :reload => ["db:drop","db:create","db:migrate"] 
+  # not "db:schema:load"]
 
+  task :all => ["devbook:reload","devbook:scrape"]
 end
+
+desc "Rebuild db then scrape"
+task :devbook => ["devbook:all"] 

@@ -2,6 +2,12 @@ require "nokogiri"
 require "open-uri"
 require "net/http"
 
+# TODO
+# Separate files
+# add parents
+# add attributes back in
+# cleanup input as text
+
 class Scraper
 		def valid_url? test_url
 			url = URI.parse(test_url)
@@ -15,6 +21,7 @@ class Scraper
 			page.gsub!(/<</,"&lt;&lt;")
 			page.gsub!(/<=>/,"&lt;=&gt;")
 			page.gsub!(/ +/," ")
+			page.gsub!(/ +\n+|\n+ +/,"\n")
 			# page.gsub!(/<!--(.*?)-->/,"")
 			page
 		end
@@ -26,7 +33,7 @@ class Scraper
 		class RubyScraper < Scraper
 			attr_reader :language
 
-			def initialize(base_uri)
+			def initialize(base_uri = "http://ruby-doc.org/core-2.3.1/")
 				@base_uri = base_uri
 				@language = {}
 				@page = false
@@ -48,13 +55,12 @@ class Scraper
 				header = @page.css("header h1").inner_text.split(" ")
 				@language[:name] = header[0]
 				@language[:version] = header[1]
-				@language[:url] = @url
+				@language[:url] = @base_uri
 			end
 
 			def class_details
 				@language[:classes] = @page.css("div#class-index .entries p a").collect{|c| {name: c.inner_text.strip} }
 				@language[:classes].each_with_index do |k, i|
-					print "Loading " << k[:name] << "... "
 					url = "#{@base_uri}#{k[:name].gsub(/::/,"/")}.html"
 					next unless valid_url? url
 					k[:url] = url
@@ -64,7 +70,7 @@ class Scraper
 					k[:articles] = scrape_class_description class_page
 					k[:methods] = scrape_class_methods class_page
 
-					puts (i + 1).to_s << "/" << @language[:classes].length.to_s << " completed"
+					puts (i + 1).to_s << "/" << @language[:classes].length.to_s << " - " << k[:name]
 				end
 			end
 
@@ -81,9 +87,15 @@ class Scraper
 			end
 
 			def scrape_class_methods class_page
+# removing attributes for now
+				class_page.css("div#attribute-method-details").remove
+#
+
 				return_meths = []
 				# types and signatures from dom
 				method_types = class_page.css("div.method-section")
+
+
 				signatures = class_page.css("div#method-list-section .link-list li").collect{|s| s.inner_text.gsub(/\s+/," ").strip}
 				# class and instance methods
 				method_types.each do |meths_type|
@@ -158,6 +170,7 @@ class Loader
 		end
 		def load
 			load_lang
+			load_classes
 		end
 		def load_lang
 			Language.create(
@@ -192,5 +205,5 @@ end
 
 # 37 no downcase for nilclass
 
-# rby = Scraper::RubyScraper.new("http://ruby-doc.org/core-2.3.1/")
+# rby = Scraper::RubyScraper.new("")
 # puts rby.language[:classes][0][:articles][0].class
