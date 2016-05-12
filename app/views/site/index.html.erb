@@ -42,9 +42,13 @@
 		<div class="col-xs-3 col-md-2 sidebar">
 			<div class="language-details">
 				<span class="glyphicon glyphicon-icon" aria-hidden="true"></span>
-				<span class="language-name"></span>
+				<h2 class="language-name">
+					<%= @lang[:name].capitalize %>
+				</h2>
 			</div>
-			<div class="js-class-name">Array</div>
+			<div class="js-class-name">
+				<%= @class[:name].capitalize %>
+			</div>
 			<div id="jstree_methods">
 				<ul>
 					<% Array.instance_methods(false).sort.each do |method| %>
@@ -57,10 +61,10 @@
 				
 		<!-- main content -->
 		<div class="row">
-			<%= render "panel", type: "description" %>
-			<%= render "panel", type: "syntax" %>
-			<%= render "panel", type: "examples" %>
-			<%= render "panel", type: "source" %>
+			<%= render "panel", type: "description", html: @meth[:description] %>
+			<%= render "panel", type: "syntax", html: @meth[:signature] %>
+			<%= render "panel", type: "examples", html: @meth[:example] %>
+			<%= render "panel", type: "source", html: @meth[:source] %>
 		</div>
 <!--  -->
 
