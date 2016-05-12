@@ -1,6 +1,6 @@
 class Loader
-	def initialize lang
-		@lang = lang
+	def initialize scrape
+		@lang_hash = scrape
 		load_lang
 		load_classes
 		puts "Load completed"
@@ -10,15 +10,15 @@ class Loader
 	private
 
 	def load_lang
-		Language.create(
-			name: @lang[:name], 
-			version: @lang[:version],
-			url: @lang[:url])
+		@lang = Language.create(
+			name: @lang_hash[:name], 
+			version: @lang_hash[:version],
+			url: @lang_hash[:url])
 	end
 	def load_classes
-		@lang[:classes].each do |k|
+		@lang_hash[:classes].each do |k|
 			# create class
-			klass = Klass.create(name: k[:name])
+			klass = Klass.create(name: k[:name], language: @lang)
 			# create articles
 			k[:articles].each do |text|
 				klass.articles.push Article.create(text: text)

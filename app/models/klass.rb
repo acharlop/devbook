@@ -24,4 +24,7 @@ class Klass < ActiveRecord::Base
 # articles
 	has_many :articles, as: :components
 
+	def self.by_id id
+		self.find_by(id: id)
+	end
 end

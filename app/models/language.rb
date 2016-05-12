@@ -5,4 +5,8 @@ class Language < ActiveRecord::Base
 	def self.by_id id
 		self.find_by(id: id)
 	end
+
+	# def as_jason(options={})
+	# 	super(only: [:id,:name,:version,:url])
+	# end
 end
