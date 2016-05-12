@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512111818) do
+ActiveRecord::Schema.define(version: 20160512153321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,10 +61,7 @@ ActiveRecord::Schema.define(version: 20160512111818) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "url"
-    t.integer  "klass_id"
   end
-
-  add_index "languages", ["klass_id"], name: "index_languages_on_klass_id", using: :btree
 
   create_table "meths", force: :cascade do |t|
     t.string   "name"
@@ -82,6 +79,5 @@ ActiveRecord::Schema.define(version: 20160512111818) do
 
   add_foreign_key "documents", "languages"
   add_foreign_key "klasses", "languages"
-  add_foreign_key "languages", "klasses"
   add_foreign_key "meths", "klasses"
 end
