@@ -1,7 +1,6 @@
 require "nokogiri"
 require "open-uri"
 require "net/http"
-require 'pry'
 
 class Scraper
 		def valid_url? test_url
@@ -55,17 +54,17 @@ class Scraper
 			def class_details
 				@language[:classes] = @page.css("div#class-index .entries p a").collect{|c| {name: c.inner_text.strip} }
 				@language[:classes].each_with_index do |k, i|
+					print "Loading " << k[:name] << "... "
 					url = "#{@base_uri}#{k[:name].gsub(/::/,"/")}.html"
 					next unless valid_url? url
 					k[:url] = url
 
 					page_string = get_fixed_page(url)
 					class_page = Nokogiri::HTML(page_string)
-					k[:descriptions] = scrape_class_description class_page
+					k[:articles] = scrape_class_description class_page
 					k[:methods] = scrape_class_methods class_page
 
 					puts (i + 1).to_s << "/" << @language[:classes].length.to_s << " completed"
-					break
 				end
 			end
 
@@ -73,8 +72,8 @@ class Scraper
 
 			def scrape_class_description class_page
 				return_descs = []
-				descriptions = class_page.css("div#description").children.reject {|c| c.class == Nokogiri::XML::Text}
-				descriptions.each do |d|
+				articles = class_page.css("div#description").children.reject {|c| c.class == Nokogiri::XML::Text}
+				articles.each do |d|
 					return_descs.push( process_elements(d) )
 				end
 				# Pry::ColorPrinter.pp(return_descs)
@@ -92,7 +91,7 @@ class Scraper
 					meths = meths_type.css("div.method-detail")
 
 					meths.each do |meth|
-						meh = {type: type, name: signatures.shift, descriptions: [], examples: []}
+						meh = {type: type, name: signatures.shift, articles: [], examples: []}
 						# get headings
 						meh[:signatures] = meth.css("div.method-heading").collect do |h| 
 							h.css("span.method-click-advice").remove
@@ -106,18 +105,18 @@ class Scraper
 						 source = meth.css("div.method-source-code").inner_html.gsub(/ +/," ").strip
 						 meh[:source] = source
 
-						# get descriptions, remove divs
+						# get articles, remove divs
 						details = meth.last_element_child
 						details.css("div").each{|d| d.remove}
 
-						# get examples and descriptions
+						# get examples and articles
 						details.children.each do |deet|
 							element = process_elements deet
 							next unless element
 							if element =~ /<\/pre>\z/ 
 								meh[:examples].push element
 							else
-								meh[:descriptions].push element
+								meh[:articles].push element
 							end
 						end
 
@@ -167,17 +166,31 @@ class Loader
 				url: @lang[:url])
 		end
 		def load_classes
-			@lang[:classes].each do |klass|
-
+			@lang[:classes].each do |k|
+				# create class
+				klass = Klass.create(name: k[:name])
+				# create articles
+				k[:articles].each do |text|
+					klass.articles.push Article.create(text: text)
+				end
+				# create methods
+				k[:methods].each do |m|
+					klass.meths.push Meth.new(
+						name: m[:name],
+						signature: m[:signatures].join(" "),
+						description: m[:articles].join(" "),
+						example: m[:examples].join(" "),
+						source: m[:source],
+						class_method: m[:type] == "class"	
+					)
+				end
 			end
-		end
-		def load_methods
-
 		end
 	end
 end
 
 
+# 37 no downcase for nilclass
 
-rby = Scraper::RubyScraper.new("http://ruby-doc.org/core-2.3.1/")
-Pry::ColorPrinter.pp(rby.language[:classes][0].keys)
+# rby = Scraper::RubyScraper.new("http://ruby-doc.org/core-2.3.1/")
+# puts rby.language[:classes][0][:articles][0].class
