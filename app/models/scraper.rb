@@ -91,11 +91,9 @@ class Scraper
 				class_page.css("div#attribute-method-details").remove
 #
 
-				return_meths = []
 				# types and signatures from dom
+				return_meths = []
 				method_types = class_page.css("div.method-section")
-
-
 				signatures = class_page.css("div#method-list-section .link-list li").collect{|s| s.inner_text.gsub(/\s+/," ").strip}
 				# class and instance methods
 				method_types.each do |meths_type|

@@ -51,8 +51,8 @@
 			</div>
 			<div id="jstree_methods">
 				<ul>
-					<% Array.instance_methods(false).sort.each do |method| %>
-					<li><a href="#"><%= method %></a></li>
+					<% @methods.reverse.each do |method| %>
+					<li><a href="#" class="js-method-select" data-method-id="<%= method[:id] %>"><%= method[:name] %></a></li>
 					<% end %>
 				</ul>
 			</div>

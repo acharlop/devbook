@@ -1,4 +1,4 @@
-$(document).ready(function($) {
+$(document).ready(function() {
 	$(".minimize").on('click', function(e) {
 		var self = $(e.currentTarget)
 		var wrapper = self.closest(".component-wrapper")
