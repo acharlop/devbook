@@ -22,13 +22,26 @@
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle user-pref-toggle" data-toggle="dropdown"><img class="nav-user-avatar" src="http://placehold.it/30x30/"></a>
 				<ul class="dropdown-menu user-pref-dropdown">
-					<li class="user-info"><a href="#">
-						<img class="nav-user-avatar" src="http://placehold.it/45x45/">
+					<li class="user-info">
+						<a href="#">
+							<img class="nav-user-avatar" src="http://placehold.it/45x45/">
 						</a>
 					</li>
-					<li><a href="#">Another action</a></li>
-					<li><a href="#">Something else here</a></li>
-					<li><a href="#">Separated link</a></li>
+					<% if user_signed_in? %>
+						<li>
+							<a href="#">Settings or whatever</a>
+						</li>
+						<li>
+							<%= link_to "Logout", destroy_user_session_path, method: "DELETE" %>
+						</li>
+					<% else %>
+						<li>
+							<%= link_to "Login", new_user_session_path %>	
+						</li>
+						<li>
+							<%= link_to "Signup", new_user_registration_path %>	
+						</li>
+					<% end %>
 				</ul>
 			</li>
 		</ul>
@@ -76,14 +89,15 @@
 		<div class="col-xs-9 col-md-10">
 				
 		<!-- main content -->
-		<div class="row">
-			<%= render "panel", type: "description", html: @meth[:description] %>
-			<%= render "panel", type: "syntax", html: @meth[:signature] %>
-			<%= render "panel", type: "examples", html: @meth[:example] %>
-			<%= render "panel", type: "source", html: @meth[:source] %>
+		<div class="row" id="method-row">
+			<%= render "panel", type: "description", html: @meth[:description] ? @meth[:description] : "<p></p>" %>
+			<%= render "panel", type: "syntax", html: @meth[:signature] ? @meth[:signature] : "<p></p>" %>
+			<%= render "panel", type: "examples", html: @meth[:example] ? @meth[:example] : "<p></p>" %>
+			<%= render "panel", type: "source", html: @meth[:source] ? @meth[:example] : "<p></p>" %>
 		</div>
-<!--  -->
 
+		<div class="row" id="class-row">
+		</div>
 
 
 		</div>

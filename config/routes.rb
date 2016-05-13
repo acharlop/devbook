@@ -10,4 +10,11 @@ Rails.application.routes.draw do
     end
   end
 
+  # ajax routes
+  get "/articles/:klass_id/" => "articles#ajax_index", as: "fetch_articles"
+
+  # devise simplified routes
+  devise_for :users, path: "",
+    path_names: {sign_in: "login", sign_up: "signup"},
+    controllers: { sessions: "users/sessions"}
 end

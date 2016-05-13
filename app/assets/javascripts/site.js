@@ -12,25 +12,3 @@ $(function () {
     "plugins": ["search"]
 	}) 
 });
-
-function update_components (method) {
-	$("div#description-body").html(method.description)
-	$("div#syntax-body").html(method.signature)
-	$("div#examples-body").html(method.example)
-	$("div#source-body").html(method.source)
-
-}
-
-$(document).ready(function() {
-	$("div#jstree").on('click', '.js-class-select', function(event) {
-		// console.log("class")
-	})
-	$("div#jstree").on('click', '.js-method-select', function(event) {
-		event.preventDefault();
-		var button = $(event.currentTarget)
-		var id = button.data("method-id")
-		$.get('/api/meths/'+id, function(data) {
-			update_components(data)
-		})
-	});
-})

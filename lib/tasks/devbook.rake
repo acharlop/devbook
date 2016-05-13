@@ -1,7 +1,7 @@
 namespace :devbook do
   desc "Run scrape scripts and build database"
   task scrape: :environment do
-  	rby = Scraper::RubyScraper.new
+  	rby = RubyScraper.new
   	Loader.new rby.language
   end
 
