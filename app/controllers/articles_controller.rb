@@ -13,5 +13,7 @@ class ArticlesController < ApplicationController
 
 	def ajax_index
 		@articles = Article.by_klass_id params[:klass_id]
+		render partial: "ajax_index"
+		# respond_to :js
 	end
 end

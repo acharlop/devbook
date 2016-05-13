@@ -15,9 +15,6 @@ class Article < ActiveRecord::Base
 		art = []
 		arr.each do |a|
 			if a !~ /\A<p/
-				# temp fix
-				a.gsub!(/h2/,"h4")
-				# 
 				art << {title: a, text: ""}
 			else
 				art.last[:text] << a

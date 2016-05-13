@@ -26,7 +26,7 @@ function update_method_components (method) {
 function show_class_components (articles) {
 	var row = toggle_class()
 	row.empty()
-	row.html(articles)
+	row.append(articles)
 }
 
 $(document).ready(function() {
@@ -34,7 +34,7 @@ $(document).ready(function() {
 	$("div#jstree").on('click', '.js-class-select', function(event) {
 		var button = $(event.currentTarget)
 		var id = button.data("class-id")
-		$.get('/articles/'+id, show_class_components())
+		$.get('/articles/'+id, show_class_components)
 	})
 
 	$("div#jstree").on('click', '.js-method-select', function(event) {

@@ -100,13 +100,8 @@
 		</div>
 
 	<div class="row" id="class-row">
-		<% articles_array = Article.by_klass(@class) %>
-		<% articles_array.each_with_index do |article, idx| %>
-		<% p "=" * 50 %>
-		<% p article %>
-		<% p "=" * 50 %>
-			<%= render "shared/panel", type: "article-#{idx}", title: article[:title], html: article[:text] %>
-			
+		<% Article.by_klass(@class).each_with_index do |article, idx| %>
+			<%= render "shared/panel", type: "article-#{idx}", title: article[:title], html: article[:text] %>			
 		<% end %>
 	</div>
 
