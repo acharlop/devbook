@@ -90,14 +90,25 @@
 				
 		<!-- main content -->
 		<div class="row" id="method-row">
-			<%= render "shared/panel", type: "description", html: @meth[:description] ? @meth[:description] : "<p></p>" %>
-			<%= render "shared/panel", type: "syntax", html: @meth[:signature] ? @meth[:signature] : "<p></p>" %>
-			<%= render "shared/panel", type: "examples", html: @meth[:example] ? @meth[:example] : "<p></p>" %>
-			<%= render "shared/panel", type: "source", html: @meth[:source] ? @meth[:example] : "<p></p>" %>
+<% p "*" * 50 %>
+	<% p @meth %>
+<% p "*" * 50 %>
+			<%= render "shared/panel", type: "description", title: "<h4>Description</h4>", 	html: @meth[:description] ? @meth[:description] : "<p></p>" %>
+			<%= render "shared/panel", type: "syntax", 			title: "<h4>Syntax</h4>", 			html: @meth[:signature] 	? @meth[:signature] 	: "<p></p>" %>
+			<%= render "shared/panel", type: "examples", 		title: "<h4>Examples</h4>", 		html: @meth[:example] 		? @meth[:example] 		: "<p></p>" %>
+			<%= render "shared/panel", type: "source", 			title: "<h4>Source</h4>", 			html: @meth[:source] 			? @meth[:example] 		: "<p></p>" %>
 		</div>
 
-		<div class="row" id="class-row">
-		</div>
+	<div class="row" id="class-row">
+		<% articles_array = Article.by_klass(@class) %>
+		<% articles_array.each_with_index do |article, idx| %>
+		<% p "=" * 50 %>
+		<% p article %>
+		<% p "=" * 50 %>
+			<%= render "shared/panel", type: "article-#{idx}", title: article[:title], html: article[:text] %>
+			
+		<% end %>
+	</div>
 
 
 		</div>

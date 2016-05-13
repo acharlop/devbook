@@ -36,7 +36,7 @@ class RubyScraper < Scraper
 				page_string = get_fixed_page(url)
 				class_page = Nokogiri::HTML(page_string)
 				k[:articles] = scrape_class_articles class_page
-				k[:articles].unshift "<h2 class=\"klass-description-title\">" << k[:name] << "</h2>"
+				k[:articles].unshift "<h4 class=\"klass-description-title\">" << k[:name] << "</h4>"
 				k[:methods] = scrape_class_methods class_page
 
 				puts (i + 1).to_s << "/" << @language[:classes].length.to_s << " - " << k[:name]

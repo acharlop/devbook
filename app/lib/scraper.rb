@@ -36,6 +36,7 @@ class Scraper
 				if e.name == "p"
 					e.to_html.gsub(/\s+/," ").strip
 				elsif e.name =~ /\Ah/ 
+					e.name = "h4"
 					e.css("span").remove
 					e["class"] = "klass-description-title"
 					e.delete "id"

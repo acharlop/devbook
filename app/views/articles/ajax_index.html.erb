@@ -1,0 +1,3 @@
+<% @articles.each_with_index do |article,idx| %>
+		<%= render "shared/panel", type: "article-#{idx}", title: article[:title], html: article[:text] %>			
+<% end %>
