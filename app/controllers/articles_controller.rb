@@ -30,6 +30,7 @@ class ArticlesController < ApplicationController
 			@articles = [{title: "<h2>No description for this class</h2>", text:"<p></p>"}]
 		end
 
+		render :partial
 
 		# render  "class_components"
 	end

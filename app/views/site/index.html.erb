@@ -90,10 +90,10 @@
 				
 		<!-- main content -->
 		<div class="row" id="method-row">
-			<%= render "panel", type: "description", html: @meth[:description] ? @meth[:description] : "<p></p>" %>
-			<%= render "panel", type: "syntax", html: @meth[:signature] ? @meth[:signature] : "<p></p>" %>
-			<%= render "panel", type: "examples", html: @meth[:example] ? @meth[:example] : "<p></p>" %>
-			<%= render "panel", type: "source", html: @meth[:source] ? @meth[:example] : "<p></p>" %>
+			<%= render "shared/panel", type: "description", html: @meth[:description] ? @meth[:description] : "<p></p>" %>
+			<%= render "shared/panel", type: "syntax", html: @meth[:signature] ? @meth[:signature] : "<p></p>" %>
+			<%= render "shared/panel", type: "examples", html: @meth[:example] ? @meth[:example] : "<p></p>" %>
+			<%= render "shared/panel", type: "source", html: @meth[:source] ? @meth[:example] : "<p></p>" %>
 		</div>
 
 		<div class="row" id="class-row">
