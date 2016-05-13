@@ -12,11 +12,11 @@ namespace :devbook do
   desc "Heroku rebuild database"
   task heroku_reload: :environment do 
   	sh("echo","blah")
-  	sh("heroku pg:reset DATABASE --confirm doc-page")
+  	sh("heroku run rake db:reset")
   end
 
   desc "Rebuild db then scrape on heroku"
-  task :heroku ["devbook:heroku_reload","devbook:scrape"]
+  task :heroku => ["devbook:heroku_reload","devbook:scrape"]
 
   task :all => ["devbook:reload","devbook:scrape"]
 end
