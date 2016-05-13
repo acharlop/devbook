@@ -1,5 +1,5 @@
 
-function toggle_class() {
+function show_class_row() {
 	var row = $("div#class-row")
 	if(row.is(":hidden")) {
 		$("div#method-row").toggle(400)
@@ -7,7 +7,7 @@ function toggle_class() {
 	}
 	return row
 }
-function show_method() {
+function show_method_row() {
 	var row = $("div#method-row")
 	if(row.is(":hidden")) {
 		$("div#class-row").toggle(400)
@@ -17,24 +17,34 @@ function show_method() {
 }
 
 function update_method_components (method) {
-	$("div#description-body").html(method.description)
-	$("div#syntax-body").html(method.signature)
-	$("div#examples-body").html(method.example)
-	$("div#source-body").html(method.source)
+	var row = show_method_row()
+	row.find("#description-body").html(method.description)
+	row.find("div#syntax-body").html(method.signature)
+	row.find("div#examples-body").html(method.example)
+	row.find("div#source-body").html(method.source)
 }
 
 function show_class_components (articles) {
-	var row = toggle_class()
+	var row = show_class_row()
 	row.empty()
 	row.append(articles)
 }
 
 $(document).ready(function() {
+	// hide class
+	$("div#class-row").toggle()
+
 
 	$("div#jstree").on('click', '.js-class-select', function(event) {
 		var button = $(event.currentTarget)
 		var id = button.data("class-id")
-		$.get('/articles/'+id, show_class_components)
+		$.ajax({
+			url: '/articles/' + id,
+			dataType: "html",
+			success: show_class_components
+		})
+		
+		// $.get('/articles/'+id, )
 	})
 
 	$("div#jstree").on('click', '.js-method-select', function(event) {

@@ -10,8 +10,9 @@ namespace :devbook do
   # not "db:schema:load"]
 
   desc "Heroku rebuild database"
-  task :heroku_reload :environment do 
-  	heroku pg:reset DATABASE --confirm doc-page
+  task heroku_reload: :environment do 
+  	sh("echo","blah")
+  	sh("heroku pg:reset DATABASE --confirm doc-page")
   end
 
   desc "Rebuild db then scrape on heroku"
