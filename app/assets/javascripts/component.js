@@ -14,4 +14,7 @@ $(document).ready(function() {
 	$(".component-row").on('click',".component-head",function(e) {
 		toggleVisibility($(e.currentTarget))
 	})
+
+	// hide class
+	// $("div.class-row").toggle()
 })

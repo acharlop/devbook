@@ -50,7 +50,7 @@
 </nav>
 
 <!-- sidbar -->
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
 
 		<div class="col-xs-12 col-s-3 col-md-2 sidebar">
@@ -98,36 +98,22 @@
 		<div class="col-xs-12 col-s-9 col-md-10 main">
 			<div class="main-scrollable">
 				<!-- main content -->
-				<div class="component-row" id="method-row">
-					<div class="component-col col-a">
-						<%= render "shared/panel", type: "description", title: "<h4>Description</h4>", 	html: @meth[:description] ? @meth[:description] : "<p></p>" %>
-						<%= render "shared/panel", type: "syntax", 			title: "<h4>Syntax</h4>", 			html: @meth[:signature] 	? @meth[:signature] 	: "<p></p>" %>
-					</div>
-					<div class="component-col col-b">
-						<%= render "shared/panel", type: "examples", 		title: "<h4>Examples</h4>", 		html: @meth[:example] 		? @meth[:example] 		: "<p></p>" %>
-						<%= render "shared/panel", type: "source", 			title: "<h4>Source</h4>", 			html: @meth[:source] 			? @meth[:example] 		: "<p></p>" %>
-					</div>
-				</div>
-
-				<div class="component-row" id="class-row">
-					<% articles = Article.by_klass(@class) %>
-					<div class="component-col col-a">
-					<% articles.each_with_index do |article, idx| %>
-						<% next if idx.odd? %>
-						<%= render "shared/panel", type: "article-#{idx}", title: article[:title], html: article[:text] %>			
-					<% end %>
-					</div>
-
-					<div class="component-col col-b">
-					<% articles.each_with_index do |article, idx| %>
-						<% next if idx.even? %>
-						<%= render "shared/panel", type: "article-#{idx}", title: article[:title], html: article[:text] %>			
-					<% end %>
-					</div>
-
-				</div>
-
+						<% articles = Article.by_klass(@class) %>
+<!-- 					<div class="component-row" id="method-row">
+						<div class="component-col col-a"> -->
+							<div class="component-row">
+								<%= render "shared/panel", type: "description", title: "<h4>Description</h4>", 	html: @meth[:description] ? @meth[:description] : "<p></p>" %>
+								<%= render "shared/panel", type: "syntax", 			title: "<h4>Syntax</h4>", 			html: @meth[:signature] 	? @meth[:signature] 	: "<p></p>" %>
+								<%= render "shared/panel", type: "examples", 		title: "<h4>Examples</h4>", 		html: @meth[:example] 		? @meth[:example] 		: "<p></p>" %>
+								<%= render "shared/panel", type: "source", 			title: "<h4>Source</h4>", 			html: @meth[:source] 			? @meth[:example] 		: "<p></p>" %>
+								<% articles.each_with_index do |article, idx| %>
+									<%= render "shared/panel", type: "article-#{idx}", title: article[:title], html: article[:text] %>			
+								<% end %>
+							<!-- </div>
+						</div> -->
+						</div>
+			</div>
 			</div>
 		</div>
-	</div>
-</div>
+
+			</div>

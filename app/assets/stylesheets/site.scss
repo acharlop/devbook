@@ -13,18 +13,22 @@
 .secondary-text-color  { color: #727272; }
 .divider-color         { border-color: #B6B6B6; } */
 
+div[class$="-scrollable"] {
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+.main-scrollable {
+	max-height: calc(100vh - 110px);
+	width: 100%;
+	display: flex;
+	flex-flow: column wrap;
+}
+
 .component-row {
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: column wrap;
 	justify-content: space-between;
-	.col-a {
-		margin-right: 3px;
-	}
-	.col-b {
-		margin-left: 3px;
-		margin-right: 5px;
-	}
-
+	margin-right: 5px;
 }
 .component-col {
 	width: 49%;

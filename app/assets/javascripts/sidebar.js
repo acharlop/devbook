@@ -2,17 +2,17 @@
 // toggle class and method views
 
 function show_class_row() {
-	var row = $("div#class-row")
+	var row = $("div.class-row")
 	if(row.is(":hidden")) {
-		$("div#method-row").toggle(400)
+		$("div.method-row").toggle(400)
 		row.toggle(400)
 	}
 	return row
 }
 function show_method_row() {
-	var row = $("div#method-row")
+	var row = $("div.method-row")
 	if(row.is(":hidden")) {
-		$("div#class-row").toggle(400)
+		$("div.class-row").toggle(400)
 		row.toggle(400)
 	}
 	return row	
@@ -37,8 +37,7 @@ function show_class_components (articles) {
 // document ready
 
 $(document).ready(function() {
-	// hide class
-	// $("div#class-row").toggle()
+	
 
 
 	$("div#jstree").on('click', '.js-class-select', function(event) {

@@ -9,15 +9,8 @@
 	pointer-events: none;
 	cursor: default;
 }
-div[class$="-scrollable"] {
-	overflow-x: hidden;
-	overflow-y: scroll;
-}
 .sidebar-scrollable {
 	max-height: calc(100vh - 160px);
-}
-.main-scrollable{
-	max-height: calc(100vh - 120px);
 }
 .language-name {
 	margin: -5px 0 0;
