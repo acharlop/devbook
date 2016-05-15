@@ -3,6 +3,7 @@ function toggleVisibility (me) {
 	var panel = wrapper.children(".panel")
 	var body = panel.children(".panel-body")
 	body.toggle(400)
+	panel.toggleClass('panel-open panel-closed');
 	wrapper.find(".minimize").first().toggleClass('fa-minus fa-plus')
 }
 
