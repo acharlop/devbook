@@ -13,6 +13,13 @@
 .secondary-text-color  { color: #727272; }
 .divider-color         { border-color: #B6B6B6; } */
 
-
-
+.component-row {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+.component-col {
+	width: calc(50% - 10px);
+	flex: 1 0 350px;
+}
 
