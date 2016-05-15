@@ -52,57 +52,61 @@
 <!-- sidbar -->
 <div class="container-fluid">
 	<div class="row">
+
 		<div class="col-xs-3 col-md-2 sidebar">
+
 			<div class="language-details">
-				<span class="glyphicon glyphicon-icon" aria-hidden="true"></span>
 				<h2 class="language-name">
 					<%= @lang[:name].capitalize %>
 				</h2>
 			</div>
 
-
 <!-- fragment caching -->
-			<div id="jstree">
-				<ul class="classes-list">
-					<% @classes.each do |klass| %>
-						<li>
-							<a href="#" class="js-class-select" data-class-id="<%= klass[:id] %>">
-								<%= klass[:name] %>
-							</a>
-							<ul class="methods-list">
-								<% klass.meths.reverse.each do |method| %>
-									<li>
-										<a href="#" class="js-method-select" data-method-id="<%= method[:id] %>">
-											<%= method[:name] %>
-										</a>
-									</li>
-								<% end %>
-							</ul>
-						</li>
-					<% end %>
-				</ul>
-			</div>
-
-
+				<div class="sidebar-scrollable">
+					<div id="jstree">
+						<ul class="classes-list">
+							<% @classes.each do |klass| %>
+								<li>
+									<a href="#" class="js-class-select" data-class-id="<%= klass[:id] %>">
+										<%= klass[:name] %>
+									</a>
+									<ul class="methods-list">
+										<% klass.meths.reverse.each do |method| %>
+											<li>
+												<a href="#" class="js-method-select" data-method-id="<%= method[:id] %>">
+													<%= method[:name] %>
+												</a>
+											</li>
+										<% end %>
+									</ul>
+								</li>
+							<% end %>
+						</ul>
+					</div>
+				</div>
 
 		</div>
+
+
+
+
 		<div class="col-xs-9 col-md-10">
-				
-		<!-- main content -->
-		<div class="row component-row" id="method-row">
-			<%= render "shared/panel", type: "description", title: "<h4>Description</h4>", 	html: @meth[:description] ? @meth[:description] : "<p></p>" %>
-			<%= render "shared/panel", type: "syntax", 			title: "<h4>Syntax</h4>", 			html: @meth[:signature] 	? @meth[:signature] 	: "<p></p>" %>
-			<%= render "shared/panel", type: "examples", 		title: "<h4>Examples</h4>", 		html: @meth[:example] 		? @meth[:example] 		: "<p></p>" %>
-			<%= render "shared/panel", type: "source", 			title: "<h4>Source</h4>", 			html: @meth[:source] 			? @meth[:example] 		: "<p></p>" %>
-		</div>
+			<div class="main-scrollable">
+				<!-- main content -->
+				<div class="row component-row" id="method-row">
+					<%= render "shared/panel", type: "description", title: "<h4>Description</h4>", 	html: @meth[:description] ? @meth[:description] : "<p></p>" %>
+					<%= render "shared/panel", type: "syntax", 			title: "<h4>Syntax</h4>", 			html: @meth[:signature] 	? @meth[:signature] 	: "<p></p>" %>
+					<%= render "shared/panel", type: "examples", 		title: "<h4>Examples</h4>", 		html: @meth[:example] 		? @meth[:example] 		: "<p></p>" %>
+					<%= render "shared/panel", type: "source", 			title: "<h4>Source</h4>", 			html: @meth[:source] 			? @meth[:example] 		: "<p></p>" %>
+				</div>
 
-	<div class="row component-row" id="class-row">
-		<% Article.by_klass(@class).each_with_index do |article, idx| %>
-			<%= render "shared/panel", type: "article-#{idx}", title: article[:title], html: article[:text] %>			
-		<% end %>
-	</div>
+				<div class="row component-row" id="class-row">
+					<% Article.by_klass(@class).each_with_index do |article, idx| %>
+						<%= render "shared/panel", type: "article-#{idx}", title: article[:title], html: article[:text] %>			
+					<% end %>
+				</div>
 
-
+			</div>
 		</div>
 	</div>
 </div>

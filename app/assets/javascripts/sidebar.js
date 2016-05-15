@@ -1,4 +1,6 @@
 
+// toggle class and method views
+
 function show_class_row() {
 	var row = $("div#class-row")
 	if(row.is(":hidden")) {
@@ -16,6 +18,7 @@ function show_method_row() {
 	return row	
 }
 
+// updated method and class ajax callback methods
 function update_method_components (method) {
 	var row = show_method_row()
 	row.find("#description-body").html(method.description)
@@ -29,6 +32,9 @@ function show_class_components (articles) {
 	row.empty()
 	row.append(articles)
 }
+
+
+// document ready
 
 $(document).ready(function() {
 	// hide class
