@@ -15,4 +15,5 @@
 // 	DONT DO IT. WHY WOULD YOU DO THAT TO YOURSELF. JUST STOP IT require turbolinks
 //= require bootstrap-sprockets
 //= require jstree
+//= require jquery-hotkeys
 //= require_tree .

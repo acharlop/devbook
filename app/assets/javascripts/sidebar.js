@@ -38,7 +38,7 @@ function show_class_components (articles) {
 
 $(document).ready(function() {
 	// hide class
-	$("div#class-row").toggle()
+	// $("div#class-row").toggle()
 
 
 	$("div#jstree").on('click', '.js-class-select', function(event) {

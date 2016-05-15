@@ -18,7 +18,7 @@ $(function () {
 
 	$("#input-search").keyup(function() {
 		if(to) {clearTimeout(to)}
-			to = setTimeout(search_tree.bind(this), 250)
+			to = setTimeout(search_tree, 200)
 	})
 });
 
@@ -26,3 +26,15 @@ function search_tree() {
 	var val = $("#input-search").val()
 	$("#jstree").jstree(true).search(val)
 }
+
+$(document).ready(function() {
+	$("#jstree a").first().addClass('jstree-hovered')
+
+	$(document).bind('keydown',"return",function () {
+		 console.log("wow it works")
+		 console.log($("#jstree.jstree-hovered"))
+		 $("#jstree.jstree-hovered").trigger('click')
+	})
+
+});
+
