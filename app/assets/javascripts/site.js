@@ -2,6 +2,8 @@
 // All this logic will automatically be available in application.js.
 $(function () { 
 	$('#jstree').jstree({
+
+
 		//  take from
 		// http://jsfiddle.net/53cvtbv9/1/
 		// https://www.jstree.com/api/#/
@@ -11,4 +13,16 @@ $(function () {
     },
     "plugins": ["search"]
 	}) 
+
+	var to = false
+
+	$("#input-search").keyup(function() {
+		if(to) {clearTimeout(to)}
+			to = setTimeout(search_tree.bind(this), 250)
+	})
 });
+
+function search_tree() {
+	var val = $("#input-search").val()
+	$("#jstree").jstree(true).search(val)
+}
