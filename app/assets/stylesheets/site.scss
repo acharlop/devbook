@@ -17,11 +17,24 @@
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-between;
+	.col-a {
+		margin-right: 3px;
+	}
+	.col-b {
+		margin-left: 3px;
+		margin-right: 5px;
+	}
+
 }
 .component-col {
-	width: calc(50% - 10px);
+	width: 50%;
 	flex: 1 0 350px;
 	display: flex;
 	flex-flow: column wrap;
 }
-
+.sidebar {
+	padding: 0 5px 0 10px;
+}
+.main {
+	padding: 0;
+}
