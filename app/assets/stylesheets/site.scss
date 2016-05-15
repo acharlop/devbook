@@ -21,5 +21,7 @@
 .component-col {
 	width: calc(50% - 10px);
 	flex: 1 0 350px;
+	display: flex;
+	flex-flow: column wrap;
 }
 
