@@ -2,17 +2,17 @@
 // toggle class and method views
 
 function show_class_row() {
-	var row = $("div.class-row")
+	var row = $("div#class-row")
 	if(row.is(":hidden")) {
-		$("div.method-row").toggle(400)
+		$("div#method-row").toggle(400)
 		row.toggle(400)
 	}
 	return row
 }
 function show_method_row() {
-	var row = $("div.method-row")
+	var row = $("div#method-row")
 	if(row.is(":hidden")) {
-		$("div.class-row").toggle(400)
+		$("div#class-row").toggle(400)
 		row.toggle(400)
 	}
 	return row	
@@ -21,7 +21,7 @@ function show_method_row() {
 // updated method and class ajax callback methods
 function update_method_components (method) {
 	var row = show_method_row()
-	row.find("#description-body").html(method.description)
+	row.find("dev#description-body").html(method.description)
 	row.find("div#syntax-body").html(method.signature)
 	row.find("div#examples-body").html(method.example)
 	row.find("div#source-body").html(method.source)
