@@ -29,6 +29,8 @@ div[class$="-scrollable"] {
 
 .component-col {
 	padding: 0;
+	// display: flex;
+	// flex-flow: column wrap;
 }
 
 @media (min-width: $screen-md-min) {
