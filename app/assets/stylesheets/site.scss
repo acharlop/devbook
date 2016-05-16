@@ -20,8 +20,6 @@ div[class$="-scrollable"] {
 .main-scrollable {
 	max-height: calc(100vh - 110px);
 	width: 100%;
-	display: flex;
-	flex-flow: column wrap;
 }
 
 .component-row {

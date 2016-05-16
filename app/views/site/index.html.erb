@@ -49,11 +49,32 @@
 	</div>
 </nav>
 
-<!-- sidbar -->
-<div class="container">
+<div class="container-fluid">
 	<div class="row">
 
-		<div class="col-xs-12 col-s-3 col-md-2 sidebar">
+
+			<div class="col-xs-12 col-sm-push-3 col-sm-9 col-md-push-2 col-md-10 main">
+				<div class="main-scrollable">
+					<!-- main content -->
+							<% articles = Article.by_klass(@class) %>
+	<!-- 					<div class="component-row" id="method-row">
+							<div class="component-col col-a"> -->
+								<div class="component-row">
+									<%= render "shared/panel", type: "description", title: "<h4>Description</h4>", 	html: @meth[:description] ? @meth[:description] : "<p></p>" %>
+									<%= render "shared/panel", type: "syntax", 			title: "<h4>Syntax</h4>", 			html: @meth[:signature] 	? @meth[:signature] 	: "<p></p>" %>
+									<%= render "shared/panel", type: "examples", 		title: "<h4>Examples</h4>", 		html: @meth[:example] 		? @meth[:example] 		: "<p></p>" %>
+									<%= render "shared/panel", type: "source", 			title: "<h4>Source</h4>", 			html: @meth[:source] 			? @meth[:example] 		: "<p></p>" %>
+									<%# articles.each_with_index do |article, idx| %>
+										<%= render "shared/panel", type: "article-#{idx}", title: article[:title], html: article[:text] %>			
+									<%# end %>
+								<!-- </div>
+							</div> -->
+							</div>
+				</div>
+			</div>
+
+		<!-- sidbar -->
+		<div class="col-xs-12 col-sm-pull-9 col-s-3 col-md-pull-10 col-md-2 sidebar">
 
 			<div class="language-details">
 				<h2 class="language-name">
@@ -61,7 +82,7 @@
 				</h2>
 			</div>
 
-<!-- fragment caching -->
+			<!-- fragment caching -->
 			<% cache do %>
 				<div class="sidebar-scrollable">
 					<div id="jstree">
@@ -87,7 +108,6 @@
 				</div>
 			<% end %>
 
-			<%= render "shared/footer" %>
 
 
 		</div>
@@ -95,25 +115,5 @@
 
 
 
-		<div class="col-xs-12 col-s-9 col-md-10 main">
-			<div class="main-scrollable">
-				<!-- main content -->
-						<% articles = Article.by_klass(@class) %>
-<!-- 					<div class="component-row" id="method-row">
-						<div class="component-col col-a"> -->
-							<div class="component-row">
-								<%= render "shared/panel", type: "description", title: "<h4>Description</h4>", 	html: @meth[:description] ? @meth[:description] : "<p></p>" %>
-								<%= render "shared/panel", type: "syntax", 			title: "<h4>Syntax</h4>", 			html: @meth[:signature] 	? @meth[:signature] 	: "<p></p>" %>
-								<%= render "shared/panel", type: "examples", 		title: "<h4>Examples</h4>", 		html: @meth[:example] 		? @meth[:example] 		: "<p></p>" %>
-								<%= render "shared/panel", type: "source", 			title: "<h4>Source</h4>", 			html: @meth[:source] 			? @meth[:example] 		: "<p></p>" %>
-								<% articles.each_with_index do |article, idx| %>
-									<%= render "shared/panel", type: "article-#{idx}", title: article[:title], html: article[:text] %>			
-								<% end %>
-							<!-- </div>
-						</div> -->
-						</div>
-			</div>
-			</div>
-		</div>
-
-			</div>
+	</div>
+</div>
