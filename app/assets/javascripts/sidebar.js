@@ -48,8 +48,6 @@ $(document).ready(function() {
 			dataType: "html",
 			success: show_class_components
 		})
-		
-		// $.get('/articles/'+id, )
 	})
 
 	$("div#jstree").on('click', '.js-method-select', function(event) {

@@ -68,7 +68,7 @@
 						</div>
 					</div>
 
-					<div class="row component-row" id="class-row">
+					<div class="row component-row" id="class-row" hidden>
 						<% articles = Article.by_klass(@class) %>
 						<div class="col-sm-12 col-md-6 component-col col-a">
 							<% articles.each_with_index do |article, idx| %>

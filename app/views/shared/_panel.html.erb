@@ -1,11 +1,22 @@
 <div class="component">
 	<div class="component-wrapper">
-				<%= render 'shared/component_header', type: type, title: title %>
+
+		<div class="component-head">
+			<%= title.html_safe %>
+		</div>
+		<div class="component-actions" id="<%= type %>-component-actions">
+			<h4>
+				<%= icon("arrows", class: "move") %>
+				&nbsp;
+				<%= icon("minus", class: "minimize") %>
+			</h4>
+		</div>
 		
 		<div class="panel panel-primary panel-open" id="<%= type %>-panel">
 			<div class="panel-body" id="<%= type %>-body">
 				<%= html.html_safe %>
 			</div>
 		</div>
+		
 	</div>			
 </div>

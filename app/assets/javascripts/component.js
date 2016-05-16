@@ -15,6 +15,5 @@ $(document).ready(function() {
 		toggleVisibility($(e.currentTarget))
 	})
 
-	// hide class
-	$("div#class-row").toggle()
+	toggleVisibility($("div#source-panel"))
 })

@@ -1,3 +1,24 @@
-<% @articles.each_with_index do |article,idx| %>
-		<%= render "shared/panel", type: "article-#{idx}", title: article[:title], html: article[:text] %>			
+
+<% if @articles.length <= 1 %>
+	<div class="col-sm-12 component-col">
+		<% @articles.each_with_index do |article,idx| %>
+				<%= render "shared/panel", type: "article-#{idx}", title: article[:title], html: article[:text] %>			
+		<% end %>
+	</div>
+<% else %>
+
+	<div class="col-sm-12 col-md-6 component-col col-a">
+		<% @articles.each_with_index do |article, idx| %>
+			<% next if idx.odd? %>
+			<%= render "shared/panel", type: "article-#{idx}", title: article[:title], html: article[:text] %>			
+		<% end %>
+	</div>
+
+	<div class="col-sm-12 col-md-6 component-col col-b">
+		<% @articles.each_with_index do |article, idx| %>
+			<% next if idx.even? %>
+			<%= render "shared/panel", type: "article-#{idx}", title: article[:title], html: article[:text] %>			
+		<% end %>
+	</div>
 <% end %>
+
