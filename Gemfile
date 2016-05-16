@@ -55,7 +55,11 @@ group :development do
   gem 'spring'
 end
 
+# fonts
 gem 'font-awesome-sass', '~> 4.6.2'
+# javascript libraries
 gem "jstree-rails-4"
+gem "jquery-ui-rails"
 
+# specify version of ruby for heroku
 ruby "2.2.1"

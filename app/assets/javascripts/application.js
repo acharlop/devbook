@@ -16,4 +16,5 @@
 //= require bootstrap-sprockets
 //= require jstree
 //= require jquery-hotkeys
+//= require jquery-ui
 //= require_tree .
