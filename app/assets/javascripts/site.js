@@ -27,14 +27,3 @@ function search_tree() {
 	$("#jstree").jstree(true).search(val)
 }
 
-$(document).ready(function() {
-	$("#jstree a").first().addClass('jstree-hovered')
-
-	$(document).bind('keydown',"return",function () {
-		 console.log("wow it works")
-		 console.log($("#jstree.jstree-hovered"))
-		 $("#jstree.jstree-hovered").trigger('click')
-	})
-
-});
-

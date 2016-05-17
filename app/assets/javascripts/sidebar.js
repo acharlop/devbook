@@ -1,3 +1,5 @@
+// show 
+
 
 // toggle class and method views
 
@@ -39,8 +41,13 @@ function show_class_components (articles) {
 // document ready
 
 $(document).ready(function() {
-	
 
+	$("#jstree").on("select_node.jstree", function(e, data){
+		data.instance.toggle_node(data.node)
+		data.instance.get_node(data.node.id,true).siblings('.jstree-open').each(function(){
+			data.instance.close_node(this)
+		})
+	})
 
 	$("div#jstree").on('click', '.js-class-select', function(event) {
 		var button = $(event.currentTarget)

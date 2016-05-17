@@ -7,7 +7,6 @@ function save_layout () {
 			var key = "m" + col.attr("class").match(/col-([ab])/)[1] + (++idx)
 			var value = panel.attr("id") + ","
 			value += panel.attr("class").match(/js-panel-(open|closed)/)[1]
-			console.log(panel.attr("class").match(/js-panel-(open|closed)/))
 			localStorage.setItem(key, value)
 		});
 	});
