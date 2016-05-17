@@ -18,3 +18,4 @@
 //= require jquery-hotkeys
 //= require jquery-ui
 //= require_tree .
+//= stub storeState
