@@ -47,7 +47,6 @@ function rebuild_screen() {
 		if (pos) {
 			var deets = deets_fix(pos.split(""))
 			var component = $("#"+e).closest(".component").detach()
-			component.attr("class","moving")
 			var parent = $(`#${deets[0]} .${deets[1]}`)
 			if (deets[2] == 1)
 				parent.prepend(component)
