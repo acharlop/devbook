@@ -3,16 +3,26 @@ function toggleVisibility (me) {
 	var panel = wrapper.children(".panel")
 	var body = panel.children(".panel-body")
 	body.toggle(400)
-	panel.toggleClass('panel-open panel-closed');
+	panel.toggleClass('js-panel-open js-panel-closed');
 	wrapper.find(".minimize").first().toggleClass('fa-minus fa-plus')
 
+	store_visibility(panel)
+}
 
+function store_visibility (panel) {
+	var id = panel.attr("id")
+	var status = "-" + panel.attr("class").match(/js-panel-(open|closed)/)[1][0]
+	var opts = localStorage.getItem(id)
+	if (opts) 
+		status = opts.split("-")[0] + status
+	localStorage.setItem(id, status)
 }
 
 function make_sortable(row) {
 	$(row + " .component-col").sortable({
 		handle: ".move",
 		items: "> .component",
+		placeholder: "placeholder",
 		connectWith: ".component-col",
 		stop: function(event, ui) {
 			var oldParent = event.target
@@ -41,17 +51,23 @@ function rebuild_data(parent) {
 
 function rebuild_screen() {
 	["description", "syntax", "examples", "source"].forEach( function(e, index) {
-	// ["description"].forEach( function(e, index) {
 		e += "-panel"
 		var pos = localStorage.getItem(e)
 		if (pos) {
-			var deets = deets_fix(pos.split(""))
+			var deets = deets_fix(pos.split("-")[0].split(""))
 			var component = $("#"+e).closest(".component").detach()
 			var parent = $(`#${deets[0]} .${deets[1]}`)
 			if (deets[2] == 1)
 				parent.prepend(component)
 			else
 				parent.append(component)
+		}
+		// load visibility
+		var current_state = component.find(".panel").attr("class").match(/js-panel-(open|closed)/)[1][0]
+		if (pos.split("-")[1]) {
+			if (pos.split("-")[1] != current_state) {
+				toggleVisibility(component.find(".minimize"))
+			}
 		}
 			// going to need a solution for more then 3 components
 			// console.log(parent.children()[deets[2] - 1])
@@ -81,7 +97,7 @@ $(document).ready(function() {
 		toggleVisibility($(e.currentTarget))
 	})
 
-	toggleVisibility($("div#source-panel"))
+	// toggleVisibility($("div#source-panel"))
 	rebuild_screen()
 	make_sortable("div#method-row")
 })
