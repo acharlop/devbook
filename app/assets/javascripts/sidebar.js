@@ -21,7 +21,7 @@ function show_method_row() {
 // updated method and class ajax callback methods
 function update_method_components (method) {
 	var row = show_method_row()
-	row.find("dev#description-body").html(method.description)
+	row.find("div#description-body").html(method.description)
 	row.find("div#syntax-body").html(method.signature)
 	row.find("div#examples-body").html(method.example)
 	row.find("div#source-body").html(method.source)
@@ -31,6 +31,8 @@ function show_class_components (articles) {
 	var row = show_class_row()
 	row.empty()
 	row.append(articles)
+
+	make_sortable("div#class-row")
 }
 
 
