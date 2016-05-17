@@ -31,13 +31,13 @@
 .panel {
 	margin: 15px 0;
 }
-.panel-open {
+.js-panel-open {
 	margin-bottom: 5px;
 	.panel-body {
 		display: block;
 	}
 }
-.panel-closed {
+.js-panel-closed {
 	margin-bottom: 14px;
 	.panel-body {
 		display: none;

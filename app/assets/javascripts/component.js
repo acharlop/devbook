@@ -1,7 +1,3 @@
-function logged_in () {
-	 return document.cookie.match(/loggedin=(true|false)/)[1] === "true"
-}
-
 function toggleVisibility (me) {
 	var wrapper = me.closest(".component-wrapper")
 	var panel = wrapper.children(".panel")
