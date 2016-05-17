@@ -42,7 +42,7 @@ function rebuild_data(parent) {
 	var letter = parent.className.match(/col-([ab])/)[1]
 	var childs = parent.children
 	for (var i = 0; i < childs.length; i++) {
-		var pos = `${type}${letter}${i + 1}`
+		var pos = type + letter + (i + 1)
 		var id = $(childs[i]).find(".panel").attr("id")
 		childs[i].dataset.position = pos
 		localStorage.setItem(id,pos)
@@ -56,7 +56,7 @@ function rebuild_screen() {
 		if (pos) {
 			var deets = deets_fix(pos.split("-")[0].split(""))
 			var component = $("#"+e).closest(".component").detach()
-			var parent = $(`#${deets[0]} .${deets[1]}`)
+			var parent = $("#"+deets[0] + " ." + deets[1])
 			if (deets[2] == 1)
 				parent.prepend(component)
 			else
