@@ -57,6 +57,7 @@ end
 
 # fonts
 gem 'font-awesome-sass', '~> 4.6.2'
+gem "devicon-rails"
 # javascript libraries
 gem "jstree-rails-4"
 gem "jquery-ui-rails"

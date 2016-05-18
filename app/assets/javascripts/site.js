@@ -16,9 +16,9 @@ $(function () {
 
 	var to = false
 
-	$("#input-search").keyup(function() {
+	$("#input-search").keydown(function() {
 		if(to) {clearTimeout(to)}
-			to = setTimeout(search_tree, 200)
+			to = setTimeout(search_tree, 250)
 	})
 });
 
@@ -27,3 +27,9 @@ function search_tree() {
 	$("#jstree").jstree(true).search(val)
 }
 
+$(document).ready(function($) {
+	$("#search-overload").on('submit', function(event) {
+		event.preventDefault();
+		search_tree()
+	});
+});

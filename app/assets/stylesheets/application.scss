@@ -27,7 +27,9 @@
 @import "bootstrap/variables";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "devicon";
 @import "jstree-default";
+@import "jquery-ui/sortable";
 
 /* custom, overrides, and partials files */
 @import "universals";
@@ -36,5 +38,4 @@
 
 /* controllers files */
 @import "site";
-@import "jquery-ui"
 

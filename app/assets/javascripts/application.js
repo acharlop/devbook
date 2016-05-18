@@ -16,6 +16,6 @@
 //= require bootstrap-sprockets
 //= require jstree
 //= require jquery-hotkeys
-//= require jquery-ui
+//= require jquery-ui/sortable
 //= require_tree .
 //= stub storeState
