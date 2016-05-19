@@ -12,6 +12,8 @@ gem 'bootstrap-sass'
 gem "devise"
 # hotkeys
 gem "jquery-hotkeys-rails"
+# syntax heighliting
+gem 'coderay', '~> 1.1', '>= 1.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'

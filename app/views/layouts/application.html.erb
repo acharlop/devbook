@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DocPage</title>
+  <title>DevBook</title>
+  <%= favicon_link_tag "favicon.ico" %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag "devise" if controller_name !~ /\Asite/ %>
   <%= csrf_meta_tags %>
@@ -17,6 +18,16 @@
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag "storeState" if user_signed_in? %>
+	<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+	<script>
+		var config = {
+	    apiKey: <%= ENV['FIREBASE_API_KEY'] %>,
+	    authDomain: "devbook-2a8f9.firebaseapp.com",
+	    databaseURL: "https://devbook-2a8f9.firebaseio.com",
+	    storageBucket: "",
+	  };
+	  firebase.initializeApp(config);
+	</script>
 
 </body>
 </html>
