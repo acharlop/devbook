@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<%= render "shared/navbar" if controller_name =~ /\Asite/ %>
 <%= render "shared/messages" %>
 
 <div class="body-wrapper">

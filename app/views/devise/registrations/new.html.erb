@@ -1,9 +1,11 @@
+<div class="text-center">
+  <%= devise_error_messages! %>
+  </div>
 <div class="container center-div">
 <div class="row">
 <h2 class="devise-title">Sign up</h2>
 
 <%= form_for(resource, as: resource_name, class: "form-horizontal", url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
 
   <div class="form-group">
     <%= f.text_field :first, placeholder: "First name", autofocus: true, class: "form-control input-lg" %>
