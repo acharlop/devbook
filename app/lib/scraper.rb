@@ -20,8 +20,8 @@ class Scraper
 			page = open(url) {|io| data = io.read}
 			page.gsub!(/<</,"&lt;&lt;")
 			page.gsub!(/<=>/,"&lt;=&gt;")
-			page.gsub!(/ +/," ")
-			page.gsub!(/ +\n+|\n+ +/,"\n")
+			# page.gsub!(/ +/," ")
+			# page.gsub!(/ +\n+|\n+ +/,"\n")
 			# page.gsub!(/<!--(.*?)-->/,"")
 			page
 		end

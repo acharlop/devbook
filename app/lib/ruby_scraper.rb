@@ -74,7 +74,9 @@ class RubyScraper < Scraper
 					# get headings
 					meh[:signatures] = meth.css("div.method-heading").collect do |h| 
 						h.css("span.method-click-advice").remove
-						h.inner_text.gsub(/\s+/," ").strip
+						h.inner_text.gsub(/ +/," ").strip
+						# h.children.collect{|t|t.name = "h3"}
+						# h.children
 					end
 					# aliases in headings for now
 					aliases = meth.css("div.aliases").inner_text.gsub(/\s+/," ").strip
