@@ -3,6 +3,7 @@
 <head>
   <title>DocPage</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "devise" if controller_name !~ /\Asite/ %>
   <%= csrf_meta_tags %>
 </head>
 <body>

@@ -1,0 +1,57 @@
+body {
+	background-color: #B3E5FC;
+    background-image: -webkit-radial-gradient(at 0 bottom, rgba(2, 169, 209, 0.7) 0%, rgba(2, 136, 209, 0) 60%), -webkit-radial-gradient(at 90% bottom, #512DA8 0%, rgba(82, 63, 140, 0) 40%), -webkit-radial-gradient(at 50% top, rgba(93, 36, 255, 0.7) 0%, rgba(179, 229, 252, 0) 75%), -webkit-radial-gradient(at right top, #673AB7 0%, rgba(121, 74, 162, 0) 57%);
+    background-image: radial-gradient(at 0 bottom, rgba(2, 169, 209, 0.7) 0%, rgba(2, 136, 209, 0) 60%), radial-gradient(at 90% bottom, #512DA8 0%, rgba(82, 63, 140, 0) 40%), radial-gradient(at 50% top, rgba(93, 36, 255, 0.7) 0%, rgba(179, 229, 252, 0) 75%), radial-gradient(at right top, #673AB7 0%, rgba(121, 74, 162, 0) 57%);
+    background-size: auto,auto,100% 1000px,100% 1000px;
+    background-repeat: no-repeat;
+    color: white;
+    padding-top: 50px;
+    overflow-y: scroll;
+}
+
+.center-div {
+	margin: 0 auto;
+	width: 250px;
+}
+
+.devise-title {
+	text-align: center;
+	font-size: 36px;
+}
+
+input {
+	margin: 20px 0;
+}
+
+.btn {
+	font-weight: bold;
+	color: #03A9F4;
+	&:hover {
+		background: #eee;
+		color: #0288D1;
+	}
+}
+
+.devise-title, .devise-links-div {
+	text-align: center;
+}
+
+.devise-text {
+    font-weight: 100 !important;	
+    font-size: 16px;
+    letter-spacing: .75px;
+		padding-right: 15px;
+}
+.devise-links-hr {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.devise-link {
+	color: white;
+	text-decoration: underline;
+	font-weight: bold;
+	font-size: 16px;
+	&:hover {
+		color: #eee;
+	}
+}

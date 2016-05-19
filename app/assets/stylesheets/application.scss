@@ -22,8 +22,8 @@
  *= require devicon-colors 
  *= require_tree ../../../vendor/assets/stylesheets/.
 */
-
 @import "my-bootstrap/bootstrap_variable_override.scss";
+
 
 /* 3rd party files */
 @import "bootstrap-sprockets";
@@ -38,6 +38,7 @@
 @import "universals";
 @import "my-bootstrap/bootstrap_override.scss";
 @import "components/*";
+// @import "devise";
 
 /* controllers files */
 @import "site";
