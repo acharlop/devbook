@@ -20,14 +20,20 @@
 				</a>
 			</li>
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle user-pref-toggle" data-toggle="dropdown"><img class="nav-user-avatar" src="http://placehold.it/30x30/"></a>
+				<a href="#" class="dropdown-toggle user-pref-toggle" data-toggle="dropdown"><img class="nav-user-avatar" src=
+				<% if user_signed_in? %>
+				"https://scontent-mia1-1.xx.fbcdn.net/v/t1.0-1/p160x160/12994472_10153998437045985_181419125663336601_n.jpg?oh=0eabad9779beed5d9067d0b246f5a594&oe=57D37826"
+				<% else %>
+				"http://placehold.it/30x30/"
+				<% end %>
+				></a>
 				<ul class="dropdown-menu user-pref-dropdown">
 					<% if user_signed_in? %>
 					<li class="user-info">
 						<a href="#">
 						<ul>
 							<li  class="user-avatar">
-							<img class="nav-user-avatar" src="http://placehold.it/45x45/">
+							<img class="nav-user-avatar" src="https://scontent-mia1-1.xx.fbcdn.net/v/t1.0-1/p160x160/12994472_10153998437045985_181419125663336601_n.jpg?oh=0eabad9779beed5d9067d0b246f5a594&oe=57D37826">
 							</li>
 							<li class="user-name">
 								<%= "#{current_user.first} #{current_user.last}" %>
@@ -38,20 +44,20 @@
 						</ul>
 						</a>
 					</li>
-						<li>
+						<li class="user-settings">
 							<a href="#">Edit settings</a>
 						</li>
-						<li>
+						<li class="user-settings">
 							<%= link_to "Edit profile", edit_user_registration_path %>
 						</li>
-						<li>
+						<li class="user-settings">
 							<%= link_to "Logout", destroy_user_session_path, method: "DELETE" %>
 						</li>
 					<% else %>
-						<li>
+						<li class="user-settings">
 							<%= link_to "Login", new_user_session_path %>	
 						</li>
-						<li>
+						<li class="user-settings">
 							<%= link_to "Signup", new_user_registration_path %>	
 						</li>
 					<% end %>
