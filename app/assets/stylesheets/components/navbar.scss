@@ -1,13 +1,16 @@
-
 .nav-wrapper {
 	display: flex;
   flex-wrap: wrap;
   justify-content: center;
 	font-size: 18px;
 
-
 	.navbar-brand {
 		padding: 15px 0;
+		font-weight: bold;
+		color: $brand-primary;
+		&:hover {
+			color: $brand-primary;
+		}
 	}
 
 	.nav-item {
@@ -41,12 +44,18 @@
 	.use-info {
 		font-size: 36px;
 		line-height: 36px;
+		&:hover {
+			color: $brand-primary;
+		}
 	}
 	.nav-user-avatar {
 		margin: 0;
 		height: 30px;
 		width: 30px;
 		border-radius: 50%;
+		&:hover {
+			border: 2px solid $brand-primary;
+		}
 	}
 }
 
@@ -73,6 +82,7 @@
 		border: none;
 		background: transparent;
 		outline: none;
+		color: $primary-text;
 		&:focus {
 			outline: none;
 		}

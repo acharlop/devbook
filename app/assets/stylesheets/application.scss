@@ -20,11 +20,12 @@
  * require jstree-default
  * require_tree . 
 */
+@import "my-bootstrap/bootstrap_variable_override.scss";
 
 /* 3rd party files */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "bootstrap/variables";
+/**/
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "devicon";
@@ -33,7 +34,7 @@
 
 /* custom, overrides, and partials files */
 @import "universals";
-@import "my-bootstrap/*";
+@import "my-bootstrap/bootstrap_override.scss";
 @import "components/*";
 
 /* controllers files */

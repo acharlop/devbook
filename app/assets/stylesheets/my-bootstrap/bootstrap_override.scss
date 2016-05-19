@@ -11,6 +11,13 @@
 
 .navbar {
 	margin-bottom: 0;
+	background: $gray-lighter;
+	border-radius: 0 0 5px 5px;
+	border: 1px solid $gray-dark;
+	border-top: 0;
+	background: -moz-linear-gradient(top, hsla(0,0%,82%,0) 0%, hsla(0,0%,82%,0.6) 100%);
+background: -webkit-linear-gradient(top, hsla(0,0%,82%,0) 0%,hsla(0,0%,82%,0.6) 100%);
+background: linear-gradient(to bottom, hsla(0,0%,82%,0) 0%,hsla(0,0%,82%,0.6) 100%);
 }
 .panel {
 	border-radius: 3px;
