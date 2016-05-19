@@ -5,7 +5,7 @@ function save_layout () {
 		col.children().each( function() {
 			var panel = $(this).find("div[id$=-panel]")
 			var key = "m" + col.attr("class").match(/col-([ab])/)[1] + (++idx)
-			var value = panel.attr("id") + ","
+			var value = panel.attr("id").split("-")[0] + ","
 			value += panel.attr("class").match(/js-panel-(open|closed)/)[1]
 			localStorage.setItem(key, value)
 		});
@@ -22,9 +22,13 @@ function load_layout () {
 			if(!settings) break;
 			settings = settings.split(",")
 
-			var panel = $("#"+settings[0])
+			var panel = $("#"+settings[0]+"-panel")
 			panel.removeClass("js-panel-open js-panel-closed")
 			panel.addClass("js-panel-" + settings[1])
+
+			var actions = $("#"+settings[0]+"-component-actions .minimize")
+			actions.removeClass("fa-minus fa-plus")
+			actions.addClass(settings[1] == "open" ? "fa-minus" : "fa-plus")
 
 			cols[col].push( panel.closest(".component").detach() )
 		}
