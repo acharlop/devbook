@@ -18,12 +18,13 @@
 		height: 50px;
 		margin: 0px;
 	}
+
 	.nav-search {
 		display: inline-block;
     float: none;
     text-align: left;
-
 	}
+
 	.user-pref {
 		display: flex;
 		justify-content: flex-end;
@@ -38,9 +39,11 @@
 			margin: 10px 0;
 		}
 	}
+
 	.li-info {
 		margin-right: 15px;
 	}
+
 	.use-info {
 		font-size: 36px;
 		line-height: 36px;
@@ -48,6 +51,7 @@
 			color: $brand-primary;
 		}
 	}
+	
 	.nav-user-avatar {
 		margin: 0;
 		height: 30px;
@@ -72,10 +76,10 @@
 }
 
 .nav-search{
-		width: 100%;
-		padding: 15px 0;
-		line-height: 20px;
-		overflow: hidden;
+	width: 100%;
+	padding: 15px 0;
+	line-height: 20px;
+	overflow: hidden;
 	#input-search {
 		display: inline-block;
 		width: 90%;

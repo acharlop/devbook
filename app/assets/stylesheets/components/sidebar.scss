@@ -1,22 +1,52 @@
-    // position: absolute;
-    // top: 0;
-    // bottom: 0;
-    // overflow-x: hidden;
-    // overflow-y: scroll;
-    // left: 0;
+
+.jstree-search {
+    color: $brand-primary !important;
+}
 
 .jstree-clicked {
-	pointer-events: none;
-	cursor: default;
+    pointer-events: none;
+    cursor: default;
+    color: #fff !important;
 }
+.jstree-wholerow-clicked {
+    background: $brand-primary-dark !important;
+    pointer-events: none;
+}
+.jstree-wholerow-hovered {
+    color: $brand-primary !important;
+}
+.jstree-hovered {
+    color: #fff !important;
+}
+
+.jstree-ocl {
+    display: none !important;
+}
+
+.fa-border {
+    border: 2px solid;
+    border-radius: 5px;
+    line-height: 18px !important;
+    margin-bottom: 1px;
+}
+
+
 .sidebar-scrollable {
 	max-height: calc(100vh - 80px);
     padding-bottom: 10px;
+    color: $gray-darker;
 }
 .language-name {
+    display: inline-block;
 	margin: 0;
+    font-size: 24px;
+    color: $language-ruby-red;
+    i {
+        margin-right: -5px;
+        font-size: 20px;
+    }
 }
 
-a .jstree-icon {
-    content: "M"
+.dim-language-name {
+    color: $gray-darker;
 }

@@ -37,10 +37,17 @@ function show_class_components (articles) {
 	make_sortable("div#class-row")
 }
 
+// dim language after 4 seconds
+
+function dim_language () {
+	$(".language-name").toggleClass('dim-language-name');
+	$(".language-icon").toggleClass('colored');
+}
 
 // document ready
 
 $(document).ready(function() {
+	setTimeout(dim_language, 6000)
 
 	$("#jstree").on("select_node.jstree", function(e, data){
 		data.instance.toggle_node(data.node)

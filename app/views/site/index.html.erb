@@ -93,6 +93,7 @@
 		<div class="col-xs-12 col-sm-pull-9 col-sm-3 col-md-pull-10 col-md-2 sidebar">
 
 			<div class="language-details">
+				<i class="language-icon devicon-ruby-plain colored"></i>
 				<h2 class="language-name">
 					<%= @lang[:name].capitalize %>
 				</h2>
@@ -104,13 +105,13 @@
 					<div id="jstree">
 						<ul class="classes-list">
 							<% @classes.each do |klass| %>
-								<li>
+								<li data-jstree='{"icon":"fa fa-gears fa-border"}'>
 									<a href="#" class="js-class-select" data-class-id="<%= klass[:id] %>">
 										<%= klass[:name] %>
 									</a>
 									<ul class="methods-list">
 										<% klass.meths.reverse.each do |method| %>
-											<li>
+											<li data-jstree='{"icon":"fa fa-medium fa-border"}'>
 												<a href="#" class="js-method-select" data-method-id="<%= method[:id] %>">
 													<%= method[:name] %>
 												</a>

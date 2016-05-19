@@ -12,20 +12,22 @@
  *
  * require_self
  */
-
-
-
-
 /* "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
  * require jstree-default
  * require_tree . 
 */
+
+/* 
+ *= require devicon 
+ *= require devicon-colors 
+ *= require_tree ../../../vendor/assets/stylesheets/.
+*/
+
 @import "my-bootstrap/bootstrap_variable_override.scss";
 
 /* 3rd party files */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-/**/
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "devicon";
