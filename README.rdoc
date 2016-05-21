@@ -1,10 +1,6 @@
-== README
+== DevBook.co
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
+A new user experience for developer documentation 
 * Ruby version
 
 * System dependencies

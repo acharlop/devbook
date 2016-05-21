@@ -9,10 +9,10 @@
 		font-weight: bold;
 		color: $brand-primary;
 		&:hover {
-			color: $brand-primary;
+			color: $brand-primary-light;
 		}
-		&:before {
-			background-image: url('devbook-color.png')
+		.logo {
+			display: inline-block;
 		}
 	}
 
