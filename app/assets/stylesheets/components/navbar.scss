@@ -11,6 +11,9 @@
 		&:hover {
 			color: $brand-primary;
 		}
+		&:before {
+			background-image: url('devbook-color.png')
+		}
 	}
 
 	.nav-item {
