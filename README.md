@@ -13,9 +13,8 @@ DevBook is a project to build new user experience for developer documentation. N
 
 ## Contributing
 
-Current contributors: [Avi Charlop](http://github.com/acharlop)
-Tentative contributors: [Al Delcy](http://github.com/aldelcy)
-
-To contribute please fork and make sure your comments are self explanitory before creating a pull request.
+* Current contributors: [Avi Charlop](http://github.com/acharlop)
+* Tentative contributors: [Al Delcy](http://github.com/aldelcy)
+* To contribute please fork and make sure your comments are self explanitory before creating a pull request.
 
 
