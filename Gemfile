@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem "prism-rails"
+
 # required for heroku
 gem "rails_12factor", group: :production
 # using PostgreSQL as database

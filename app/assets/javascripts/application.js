@@ -17,5 +17,8 @@
 //= require jstree
 //= require jquery-hotkeys
 //= require jquery-ui/sortable
+//= require prism
+//= require prism-ruby.min
+//= require prism-line-numbers
 //= require_tree .
 //= stub storeState
