@@ -1,4 +1,5 @@
 class RubyScraper < Scraper
+	include RubyScraperHelper
 		attr_reader :language
 
 		def initialize(base_uri = "http://ruby-doc.org/core-2.3.1/")
